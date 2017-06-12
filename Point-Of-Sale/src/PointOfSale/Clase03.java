@@ -1,7 +1,25 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * The MIT License
+ *
+ * Copyright 2017 C0305 <c0305@cobos.xyz>.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
  */
 package PointOfSale;
 
@@ -14,7 +32,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author owl
+ * @author C0305 <c0305@cobos.xyz>.
  */
 public class Clase03 extends javax.swing.JFrame {
 
@@ -45,15 +63,6 @@ public class Clase03 extends javax.swing.JFrame {
         this.setTitle("Begin Session");
         this.setResizable(false);
 
-        // Inicializa Controles
-        lblUser.setText("User: ");
-        lblPassword.setText("Password: ");
-        txtUser.setText("");
-        txpPassword.setText("");
-        txtName.setText("");
-        txtRole.setText("");
-        butCancel.setText("Cancel");
-        butAccept.setText("Accept");
         
         // Deshabilitar los despliegues
         lblName.setText("Name: ");
@@ -88,21 +97,13 @@ public class Clase03 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblUser.setText("jLabel1");
+        lblUser.setText("User: ");
 
-        lblPassword.setText("jLabel1");
+        lblPassword.setText("Password: ");
 
-        lblName.setText("jLabel1");
+        lblName.setText("Nombre: ");
 
-        lblRole.setText("jLabel1");
-
-        txtUser.setText("jTextField1");
-
-        txtName.setText("jTextField2");
-
-        txtRole.setText("jTextField3");
-
-        txpPassword.setText("jPasswordField1");
+        lblRole.setText("Rol:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -117,9 +118,9 @@ public class Clase03 extends javax.swing.JFrame {
                     .addComponent(lblUser))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(txpPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
+                    .addComponent(txpPassword, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtRole, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtRole, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
                     .addComponent(txtUser))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
@@ -166,7 +167,7 @@ public class Clase03 extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(butAccept)
@@ -175,7 +176,7 @@ public class Clase03 extends javax.swing.JFrame {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(90, 90, 90)
                     .addComponent(butCancel)
-                    .addContainerGap(212, Short.MAX_VALUE)))
+                    .addContainerGap(221, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
