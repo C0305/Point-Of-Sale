@@ -23,7 +23,6 @@
  */
 package PointOfSale;
 
-import PointOfSale.dsConnection;
 import java.awt.Color;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -32,45 +31,39 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author C0305 <c0305@cobos.xyz>.
+ * @author C0305 <c0305@cobos.xyz>
  */
-public class Clase03 extends javax.swing.JFrame {
+public class LogIn extends javax.swing.JFrame {
 
-    // Se declara variable de conexion
-    dsConnection oConn = new dsConnection();
+    // Declaro variables de Conexion
+    clsConnection oConn = new clsConnection();
 
     /**
-     * Creates new form Clase03
+     * Creates new form LogIn
      */
-    public Clase03() throws SQLException, ClassNotFoundException  {
+    public LogIn() throws SQLException, ClassNotFoundException {
 
-        // Intento de Conexcion
-        if (!oConn.FnBoolConnectionOpen("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/PointOfSale","root",""))
-        {
-            // Mensaje
-            JOptionPane.showMessageDialog(null, "No se logro la conexion al Host");
-            
-            // Finalizar App
+        if (!oConn.FnBooleanConnectionOpen("com.mysql.jdbc.Driver", "jdbc:mysql://127.0.0.1/PointOfSale", "root", "")) {
+            // Mensaje: Error de conexion
+            JOptionPane.showMessageDialog(null, "No se logro la conexión con el Host");
+            // Mata la aplicación
             System.exit(0);
-        }
-        else
-        {
-        
-        initComponents();
+        } else {
+            // Inicialia todo
+            initComponents();
+            
+            // Centrar Forma
+            this.setLocationRelativeTo(null);
+            this.setTitle("Begin Session");
+            this.setResizable(false);
+            
+            // Deshabilita los despliegues
+            txtNombre.setEnabled(false);
+            txtNombre.setBackground(Color.DARK_GRAY);
+            txtRol.setEnabled(false);
+            txtRol.setBackground(Color.DARK_GRAY);
+            
 
-        // Centrar la Froma
-        this.setLocationRelativeTo(null);
-        this.setTitle("Begin Session");
-        this.setResizable(false);
-
-        
-        // Deshabilitar los despliegues
-        lblName.setText("Name: ");
-        lblRole.setText("Role: ");
-        txtName.setEnabled(false);
-        txtName.setBackground(Color.DARK_GRAY);
-        txtRole.setEnabled(false);
-        txtRole.setBackground(Color.DARK_GRAY);
         }
     }
 
@@ -84,76 +77,81 @@ public class Clase03 extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        lblUser = new javax.swing.JLabel();
-        lblPassword = new javax.swing.JLabel();
-        lblName = new javax.swing.JLabel();
-        lblRole = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         txtUser = new javax.swing.JTextField();
-        txtName = new javax.swing.JTextField();
-        txtRole = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
+        txtRol = new javax.swing.JTextField();
         txpPassword = new javax.swing.JPasswordField();
         butAccept = new javax.swing.JButton();
         butCancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblUser.setText("User: ");
+        jLabel1.setText("Username:");
 
-        lblPassword.setText("Password: ");
+        jLabel2.setText("Password: ");
 
-        lblName.setText("Nombre: ");
+        jLabel3.setText("Nombre:");
 
-        lblRole.setText("Rol:");
+        jLabel4.setText("Rol: ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(53, 53, 53)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblRole)
-                    .addComponent(lblName)
-                    .addComponent(lblPassword)
-                    .addComponent(lblUser))
-                .addGap(29, 29, 29)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(txpPassword, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtRole, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
-                    .addComponent(txtUser))
-                .addContainerGap(46, Short.MAX_VALUE))
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1))
+                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtUser)
+                    .addComponent(txtNombre)
+                    .addComponent(txtRol)
+                    .addComponent(txpPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE))
+                .addGap(44, 44, 44))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUser)
+                    .addComponent(jLabel1)
                     .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPassword)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
                     .addComponent(txpPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblName)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblRole)
-                    .addComponent(txtRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                    .addComponent(jLabel4)
+                    .addComponent(txtRol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
-        butAccept.setText("Aceptar");
+        butAccept.setText("Accept");
         butAccept.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 butAcceptMouseClicked(evt);
             }
         });
+        butAccept.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                butAcceptKeyPressed(evt);
+            }
+        });
 
-        butCancel.setText("Cancelar");
+        butCancel.setText("Cancel");
         butCancel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 butCancelMouseClicked(evt);
@@ -165,89 +163,86 @@ public class Clase03 extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(21, 21, 21)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(butAccept)
-                .addGap(92, 92, 92))
+                .addGap(106, 106, 106))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(90, 90, 90)
+                    .addGap(101, 101, 101)
                     .addComponent(butCancel)
-                    .addContainerGap(221, Short.MAX_VALUE)))
+                    .addContainerGap(235, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(24, 24, 24)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addComponent(butAccept)
-                .addGap(14, 14, 14))
+                .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(259, Short.MAX_VALUE)
+                    .addContainerGap(265, Short.MAX_VALUE)
                     .addComponent(butCancel)
-                    .addGap(12, 12, 12)))
+                    .addContainerGap()))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void butCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_butCancelMouseClicked
-        // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_butCancelMouseClicked
 
     private void butAcceptMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_butAcceptMouseClicked
-        // TODO add your handling code here:
         String sqlStmt;
-        
-        //Verificar si no ha logrado conexion
-        if (butAccept.getText()=="Accept"){
-            
-            // Preparar Query
+        if("Accept".equals(butAccept.getText())){
             sqlStmt = "Select * from tblusers";
-            // Agrego la condicion del User
             sqlStmt += " Where strUserIde='"+txtUser.getText()+"'";
-            sqlStmt += " And strUserPass='"+String.valueOf(txpPassword.getPassword()) + "'";
+            sqlStmt += " And strUserPass='"+String.valueOf(txpPassword.getPassword())+"'";
             
-            oConn.SubQueryExecute(sqlStmt);
-            try{
-                // Verificar que haya encontrado un registro
-                if (oConn.setResult.next())
+            oConn.subQueryExecute(sqlStmt);
+            try
+            {
+                if(oConn.setResult.next())
                 {
-                    // Pasar datos a textBox
-                    txtName.setText(oConn.setResult.getString("strUserName"));
-                    txtRole.setText(oConn.setResult.getString("strRoleName"));
+                    // Paso datos de la base de datos a los textfield
+                    txtNombre.setText(oConn.setResult.getString("strUserName"));
+                    txtRol.setText(oConn.setResult.getString("strRoleName"));
                     
-                    //Cambiar texto del boton
-                    butAccept.setText("Sign In");
-                    // Deshabilitar Cancelar
+                    // Cambio el texto del Boton
+                    butAccept.setText("Sig in");
+                    // Deshabilito Cancelar
                     butCancel.setEnabled(false);
                 }
-                else{
-                    // Mostrar mensaje de error
-                    txtName.setText("User & password Incorrect");
-                    txtRole.setText("Try again doge...");
+                else
+                {
+                    txtNombre.setText("User & Password Incorrect");
+                    txtRol.setText("Try Again doge...");
                 }
+                
+                // Cierro la consulta (Siempre Recuerda cerrar las consultas si no puedes saturar el servidor o la app)
                 oConn.setResult.close();
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, e.toString());
+            }catch (SQLException e)
+            {
+                JOptionPane.showMessageDialog(null,e.toString());
             }
-            
         }
         else
         {
-            // Mostrar OptionPane
-            JOptionPane.showMessageDialog(null, "Ingresando al sistema");
-            
-            // Cerrar la ventana
+            JOptionPane.showMessageDialog(null," Ingresando al sistema");
+            // Cierra la Ventana
             this.dispose();
         }
     }//GEN-LAST:event_butAcceptMouseClicked
+
+    private void butAcceptKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_butAcceptKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_butAcceptKeyPressed
 
     /**
      * @param args the command line arguments
@@ -260,32 +255,24 @@ public class Clase03 extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Mac OS X".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Clase03.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Clase03.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Clase03.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Clase03.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(LogIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    new Clase03().setVisible(true);
-                } catch (SQLException ex) {
-                    Logger.getLogger(Clase03.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(Clase03.class.getName()).log(Level.SEVERE, null, ex);
-                }
+        java.awt.EventQueue.invokeLater(() -> {
+            try {
+                new LogIn().setVisible(true);
+            } catch (SQLException | ClassNotFoundException ex) {
+                Logger.getLogger(LogIn.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
     }
@@ -293,14 +280,14 @@ public class Clase03 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butAccept;
     private javax.swing.JButton butCancel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblName;
-    private javax.swing.JLabel lblPassword;
-    private javax.swing.JLabel lblRole;
-    private javax.swing.JLabel lblUser;
     private javax.swing.JPasswordField txpPassword;
-    private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtRole;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtRol;
     private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }
