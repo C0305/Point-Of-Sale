@@ -43,7 +43,7 @@ public class LogIn2 extends javax.swing.JFrame {
      */
     public LogIn2() throws SQLException, ClassNotFoundException {
 
-        if (!oConn.FnBooleanConnectionOpen("com.mysql.jdbc.Driver", "jdbc:mysql://127.0.0.1/PointOfSale", "root", "")) {
+        if (!oConn.FnBooleanConnectionOpen("com.mysql.jdbc.Driver", "jdbc:mysql://sql3.freemysqlhosting.net/sql3185730", "sql3185730", "SdTmTcgZuP")) {
             // Mensaje: Error de conexion
             JOptionPane.showMessageDialog(null, "No se logro la conexión con el Host");
             // Mata la aplicación

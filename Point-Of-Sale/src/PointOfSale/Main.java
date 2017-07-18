@@ -23,8 +23,11 @@
  */
 package PointOfSale;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -38,7 +41,14 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
         
+        // Maximize Form
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        
+        // Set incon Image
+        Image icon = new ImageIcon(getClass().getResource("icono.png")).getImage();
+        
+        // Set image
+        this.setIconImage(icon);
     }
 
     /**
@@ -63,6 +73,9 @@ public class Main extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Punto de venta (Desarrollado por C0305)");
+
+        jMenuBar1.setToolTipText("");
 
         jMenu1.setText("Sistema");
 
@@ -129,7 +142,11 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuItemProcesosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemProcesosActionPerformed
-        // TODO add your handling code here:
+        // Declaro la variable de la forma de procesos 
+        Procesos procesos = new Procesos(this,true); 
+        
+        // Muestra la forma
+        procesos.setVisible(true);
     }//GEN-LAST:event_menuItemProcesosActionPerformed
 
     private void menuItemUsuariosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuItemUsuariosMousePressed
